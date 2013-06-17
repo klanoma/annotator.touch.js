@@ -3,6 +3,10 @@
   "private": true,
   "version": "1.1.0",
   "description": "Adds touch device support to the Annotator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:klanoma/annotator.touch.js.git"
+  },
   "dependencies": {
     "coffee-script": "1.6.3",
     "uglify-js": "2.3.6",
