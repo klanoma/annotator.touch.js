@@ -160,6 +160,7 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
   #
   # Returns an annotation object.
   ###
+  # removed because it overloads the existing (working) function in the main annotator class
   createAnnotation: (range, quote) ->
     console.log 'touch createAnnotation'
     @annotator.selectedRanges = [range]
