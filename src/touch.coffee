@@ -159,11 +159,10 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
   #   annotator.showEditor(ann)
   #
   # Returns an annotation object.
-  ###
-  # removed because it overloads the existing (working) function in the main annotator class
   createAnnotation: (range, quote) ->
     console.log 'touch createAnnotation'
     @annotator.selectedRanges = [range]
+
     annotation = @annotator.setupAnnotation @annotator.createAnnotation()
     annotation.quote = quote or range.text()
 
@@ -171,7 +170,6 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
     annotation = @annotator.onAdderClick() #returns the annotation
 
     annotation
-  ###
 
   # Public: Shows the Editor and hides the Touch controls.
   #
@@ -367,6 +365,20 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
   _onAdderTap: (event) =>
     event.preventDefault()
     if @range
+      console.log '@range', @range
+
+      $('.article-paragraphs .tooltip').not('.superscript').each ->
+        $(this).find('.tooltip-content').remove()
+        $(this).find('.link-text').addClass('needs-tooltip').unwrap()
+
+      selection = window.getSelection()
+
+      if selection.rangeCount
+        @range = selection.getRangeAt(0)
+
+      # now rebuild the tooltips!
+      window.tooltipify()
+
       browserRange = new Annotator.Range.BrowserRange(@range)
       range = browserRange.normalize().limit(@element[0])
 
