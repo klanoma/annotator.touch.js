@@ -164,7 +164,7 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
     @annotator.selectedRanges = [range]
     annotation = @annotator.setupAnnotation @annotator.createAnnotation()
     annotation.quote = quote or range.text()
-    @annotator.onAdderClick() #testing. Might need to be removed.
+    # @annotator.onAdderClick() #testing. Might need to be removed.
     annotation
 
   # Public: Shows the Editor and hides the Touch controls.
