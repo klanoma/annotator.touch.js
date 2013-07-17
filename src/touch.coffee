@@ -160,7 +160,6 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
   #
   # Returns an annotation object.
   createAnnotation: (range, quote) ->
-    console.log 'touch createAnnotation'
     @annotator.selectedRanges = [range]
 
     annotation = @annotator.setupAnnotation @annotator.createAnnotation()
@@ -365,8 +364,8 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
   _onAdderTap: (event) =>
     event.preventDefault()
     if @range
-      console.log '@range', @range
 
+      # remove tooltips and get the range
       $('.article-paragraphs .tooltip').not('.superscript').each ->
         $(this).find('.tooltip-content').remove()
         $(this).find('.link-text').addClass('needs-tooltip').unwrap()
