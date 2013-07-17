@@ -159,13 +159,18 @@ class Annotator.Plugin.Touch extends Annotator.Plugin
   #   annotator.showEditor(ann)
   #
   # Returns an annotation object.
+  ###
   createAnnotation: (range, quote) ->
     console.log 'touch createAnnotation'
     @annotator.selectedRanges = [range]
     annotation = @annotator.setupAnnotation @annotator.createAnnotation()
     annotation.quote = quote or range.text()
-    # @annotator.onAdderClick() #testing. Might need to be removed.
+
+    # begin testing
+    annotation = @annotator.onAdderClick() #returns the annotation
+
     annotation
+  ###
 
   # Public: Shows the Editor and hides the Touch controls.
   #
