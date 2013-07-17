@@ -157,7 +157,7 @@ class Annotator.Plugin.Touch.Editor extends Annotator.Delegator
   # Returns nothing.
   _onSubmit: (event) =>
     event.preventDefault()
-    @editor.submit()
+    # @editor.submit() # Commented out, because it caused duplicate submissions
 
   # Event handler for the cancel button in the editor.
   #
